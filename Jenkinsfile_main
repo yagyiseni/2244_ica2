@@ -4,7 +4,6 @@ pipeline {
 
         stage('Build and run docker image') {
             steps {
-                sh 'echo "this is process'
                 sh 'sudo docker pull rohan2053/devopssecond:latest'
                 sh 'sudo docker stop rohan-app-one || true && sudo docker rm rohan-app-one || true' 
                 sh 'sudo docker run --name rohan-app-one -d -p 8082:80 rohan2053/devopssecond:latest'
