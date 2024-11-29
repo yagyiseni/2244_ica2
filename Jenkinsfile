@@ -21,8 +21,9 @@ pipeline {
         stage('Build and run docker image') {
             steps {
                 sh 'sudo docker build -t rohan2053/devopssecond:latest .'
-                sh "sudo docker tag rohan2053/devopssecond:latest rohan2053/devopssecond:develop-${env.BUILD_ID}" 
-                sh 'sudo docker run -d -p 8081:80 rohan2053/devopssecond:latest'
+                sh "sudo docker tag rohan2053/devopssecond:latest rohan2053/devopssecond:develop-${env.BUILD_ID}"
+                sh 'docker stop rohan-app || true && docker rm todo-app || true' 
+                sh 'sudo docker run --name rohan-app -d -p 9000:80 rohan2053/devopssecond:latest'
             } 
         }
 
@@ -31,7 +32,7 @@ pipeline {
 
         stage('testing') {
             steps {
-                sh 'curl -I 3.86.83.163:8081'
+                sh 'curl -I 3.86.83.163:9000'
             }
        }
 
