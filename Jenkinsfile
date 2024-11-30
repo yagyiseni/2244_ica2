@@ -38,7 +38,7 @@ pipeline {
 
        stage('Build and Push') {
             steps {
-                echo 'Building..(testing)'
+                echo 'Building..(1)'
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                             sudo docker login -u ${USERNAME} -p ${PASSWORD}
