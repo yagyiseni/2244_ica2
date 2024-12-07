@@ -32,7 +32,7 @@ pipeline {
 
         stage('testing') {
             steps {
-                sh 'curl -I 3.86.83.163:9001'
+                sh 'curl -I 52.54.242.232:9001'
             }
        }
 
