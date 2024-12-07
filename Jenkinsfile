@@ -7,6 +7,7 @@ pipeline {
             }
         }
 
+        
         stage('Clone Git Repo') {
             steps {
                 checkout scm
