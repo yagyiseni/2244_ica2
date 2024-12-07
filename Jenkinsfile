@@ -32,13 +32,13 @@ pipeline {
 
         stage('testing') {
             steps {
-                sh 'curl -I 34.238.117.2:9001'
+                sh 'curl -I 3.95.132.227:9001'
             }
        }
 
        stage('Build and Push') {
             steps {
-                echo 'Building..(1)'
+                echo 'Building..(7th dec)'
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-auth', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                             sudo docker login -u ${USERNAME} -p ${PASSWORD}
