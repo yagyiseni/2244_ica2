@@ -11,6 +11,7 @@ pipeline {
         }
         
 
+
         stage('testing') {
             steps {
                 sh 'curl -I 52.54.242.232:8082'
