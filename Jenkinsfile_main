@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+
+        stage('Build and run docker image') {
+            steps {
+                sh 'sudo docker pull rohan2053/devopssecond:latest'
+                sh 'sudo docker stop rohan-app-one || true && sudo docker rm rohan-app-one || true' 
+                sh 'sudo docker run --name rohan-app-one -d -p 8082:80 rohan2053/devopssecond:latest'
+            } 
+        }
+        
+
+        stage('testing') {
+            steps {
+                sh 'curl -I 52.54.242.232:8082'
+            }
+       }
+
+
+}
+}
